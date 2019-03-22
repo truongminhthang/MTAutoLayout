@@ -22,10 +22,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        button = UIButton(type: UIButton.ButtonType.RoundedRect)
-        button.backgroundColor = UIColor.cyanColor
-        button.setTitle("change size", forState: UIControl.State.Normal)
-        button.addTarget(self, action: "changeSize", forControlEvents: UIControl.Event.TouchUpInside)
+        button = UIButton(type: UIButton.ButtonType.roundedRect)
+        button.backgroundColor = UIColor.cyan
+        button.setTitle("change size", for: UIControl.State.Normal)
+        button.addTarget(self, action: "changeSize", for: UIControl.Event.touchUpInside)
         
         view.addSubview(button)
         
@@ -35,11 +35,11 @@ class ViewController: UIViewController {
         let topLeftBtn = UIButton(title: "Top Left" )
         view.addSubview(topLeftBtn)
 
-        dict = topLeftBtn.mt_InnerAlign(PinPosition.HighLeft,  space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
+        dict = topLeftBtn.mt_InnerAlign(pinTo: PinPosition.HighLeft,  space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
         
         let topCenterBtn = UIButton(title: "Top Center")
         view.addSubview(topCenterBtn)
-        topCenterBtn.mt_InnerAlign(PinPosition.HighCenter, space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
+        topCenterBtn.mt_InnerAlign(pinTo: PinPosition.HighCenter, space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
         
         let hightRightBtn = UIButton(title: "Top Right" )
         view.addSubview(hightRightBtn)
@@ -51,17 +51,17 @@ class ViewController: UIViewController {
         let midLeftBtn = UIButton(title: "Mid Left" )
         view.addSubview(midLeftBtn)
         
-        midLeftBtn.mt_InnerAlign(PinPosition.MidLeft,  space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
+        midLeftBtn.mt_InnerAlign(pinTo: PinPosition.MidLeft,  space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
         
         
         let midCenterBtn = UIButton(title: "Mid Center")
         view.addSubview(midCenterBtn)
-        midCenterBtn.mt_InnerAlign(PinPosition.Center, space: 100, size: CGSize(width: 100, height: 80), offset: UIOffset(horizontal: 0, vertical: 0))
+        midCenterBtn.mt_InnerAlign(pinTo: PinPosition.Center, space: 100, size: CGSize(width: 100, height: 80), offset: UIOffset(horizontal: 0, vertical: 0))
         
         let midRightBtn = UIButton(title: "Mid Right" )
         view.addSubview(midRightBtn)
         
-        midRightBtn.mt_InnerAlign(PinPosition.MidRight,  space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
+        midRightBtn.mt_InnerAlign(pinTo: PinPosition.MidRight,  space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
         
 
         
@@ -69,90 +69,90 @@ class ViewController: UIViewController {
         let lowLeftBtn = UIButton(title: "Low Left" )
         view.addSubview(lowLeftBtn)
         
-        lowLeftBtn.mt_InnerAlign(PinPosition.LowLeft,  space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
+        lowLeftBtn.mt_InnerAlign(pinTo: PinPosition.LowLeft,  space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
         
         
         let lowCenterBtn = UIButton(title: "Low Center")
         view.addSubview(lowCenterBtn)
-        lowCenterBtn.mt_InnerAlign(PinPosition.LowCenter, space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
+        lowCenterBtn.mt_InnerAlign(pinTo: PinPosition.LowCenter, space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
         
         let lowRightBtn = UIButton(title: "Low Right" )
         view.addSubview(lowRightBtn)
         
-        lowRightBtn.mt_InnerAlign(PinPosition.LowRight,  space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
+        lowRightBtn.mt_InnerAlign(pinTo: PinPosition.LowRight,  space: 20, size: originSize, offset: UIOffset(horizontal: 0, vertical: 0))
         
         //MARK: - OUTER LEFT TOP
         let outerLeftBtn = UIButton(title: "L", bgColor: bgColor)
         view.addSubview(outerLeftBtn)
-        outerLeftBtn.mt_OuterAlign(PinOuterPosition.Left, toView: midCenterBtn, space: 8, size: folowSize)
+        outerLeftBtn.mt_OuterAlign(pinTo: PinOuterPosition.Left, toView: midCenterBtn, space: 8, size: folowSize)
         
         let outerRightBtn = UIButton(title: "R", bgColor: bgColor)
         view.addSubview(outerRightBtn)
-        outerRightBtn.mt_OuterAlign(PinOuterPosition.Right, toView: midCenterBtn, space: 8, size: folowSize)
+        outerRightBtn.mt_OuterAlign(pinTo: PinOuterPosition.Right, toView: midCenterBtn, space: 8, size: folowSize)
         
         let outerTopBtn = UIButton(title: "T", bgColor: bgColor)
         view.addSubview(outerTopBtn)
-        outerTopBtn.mt_OuterAlign(PinOuterPosition.Top, toView: midCenterBtn, space: 8, size: folowSize)
+        outerTopBtn.mt_OuterAlign(pinTo: PinOuterPosition.Top, toView: midCenterBtn, space: 8, size: folowSize)
 
         let outerBottomBtn = UIButton(title: "B", bgColor: bgColor)
         view.addSubview(outerBottomBtn)
-        outerBottomBtn.mt_OuterAlign(PinOuterPosition.Bottom, toView: midCenterBtn, space: 8, size: folowSize)
+        outerBottomBtn.mt_OuterAlign(pinTo: PinOuterPosition.Bottom, toView: midCenterBtn, space: 8, size: folowSize)
 
         //MARK: CONVENIENCE LEFT
         
         
         let outerBottomLeftBtn = UIButton(title: "BL", bgColor: bgColor)
         view.addSubview(outerBottomLeftBtn)
-        outerBottomLeftBtn.mt_OuterAlign(PinOuterPosition.BottomLeft, toView: midCenterBtn, space: 8, size: folowSize)
+        outerBottomLeftBtn.mt_OuterAlign(pinTo: PinOuterPosition.BottomLeft, toView: midCenterBtn, space: 8, size: folowSize)
         
         let outerLowerLeftBtn = UIButton(title: "LL", bgColor: bgColor)
         view.addSubview(outerLowerLeftBtn)
-        outerLowerLeftBtn.mt_OuterAlign(PinOuterPosition.LowerLeft, toView: midCenterBtn, space: 8, size: folowSize)
+        outerLowerLeftBtn.mt_OuterAlign(pinTo: PinOuterPosition.LowerLeft, toView: midCenterBtn, space: 8, size: folowSize)
         
         let outerHighterLeftBtn = UIButton(title: "HL", bgColor: bgColor)
         view.addSubview(outerHighterLeftBtn)
-        outerHighterLeftBtn.mt_OuterAlign(PinOuterPosition.HigherLeft, toView: midCenterBtn, space: 8, size: folowSize)
+        outerHighterLeftBtn.mt_OuterAlign(pinTo: PinOuterPosition.HigherLeft, toView: midCenterBtn, space: 8, size: folowSize)
         
         
         let outerTopLeftBtn = UIButton(title: "TL", bgColor: bgColor)
         view.addSubview(outerTopLeftBtn)
-        outerTopLeftBtn.mt_OuterAlign(PinOuterPosition.TopLeft, toView: midCenterBtn, space: 8, size: folowSize)
+        outerTopLeftBtn.mt_OuterAlign(pinTo: PinOuterPosition.TopLeft, toView: midCenterBtn, space: 8, size: folowSize)
         
         
         let lefterTopBtn = UIButton(title: "LT", bgColor: bgColor)
         view.addSubview(lefterTopBtn)
-        lefterTopBtn.mt_OuterAlign(PinOuterPosition.LefterTop, toView: midCenterBtn, space: 8, size: folowSize)
+        lefterTopBtn.mt_OuterAlign(pinTo: PinOuterPosition.LefterTop, toView: midCenterBtn, space: 8, size: folowSize)
         
         let righterTopbtn = UIButton(title: "RT", bgColor: bgColor)
         view.addSubview(righterTopbtn)
-        righterTopbtn.mt_OuterAlign(PinOuterPosition.RighterTop, toView: midCenterBtn, space: 8, size: folowSize)
+        righterTopbtn.mt_OuterAlign(pinTo: PinOuterPosition.RighterTop, toView: midCenterBtn, space: 8, size: folowSize)
         
         let topRightbtn = UIButton(title: "TR", bgColor: bgColor)
         view.addSubview(topRightbtn)
-        topRightbtn.mt_OuterAlign(PinOuterPosition.TopRight, toView: midCenterBtn, space: 8, size: folowSize)
+        topRightbtn.mt_OuterAlign(pinTo: PinOuterPosition.TopRight, toView: midCenterBtn, space: 8, size: folowSize)
         
         let outerHigherRight = UIButton(title: "HR", bgColor: bgColor)
         view.addSubview(outerHigherRight)
-        outerHigherRight.mt_OuterAlign(PinOuterPosition.HigherRight, toView: midCenterBtn, space: 8, size: folowSize)
+        outerHigherRight.mt_OuterAlign(pinTo: PinOuterPosition.HigherRight, toView: midCenterBtn, space: 8, size: folowSize)
         
         let outerLowerRight = UIButton(title: "LR", bgColor: bgColor)
         view.addSubview(outerLowerRight)
-        outerLowerRight.mt_OuterAlign(PinOuterPosition.LowerRight, toView: midCenterBtn, space: 8, size: folowSize)
+        outerLowerRight.mt_OuterAlign(pinTo: PinOuterPosition.LowerRight, toView: midCenterBtn, space: 8, size: folowSize)
         
         let outerBottomRight = UIButton(title: "BR", bgColor: bgColor)
         view.addSubview(outerBottomRight)
-        outerBottomRight.mt_OuterAlign(PinOuterPosition.BottomRight, toView: midCenterBtn, space: 8, size: folowSize)
+        outerBottomRight.mt_OuterAlign(pinTo: PinOuterPosition.BottomRight, toView: midCenterBtn, space: 8, size: folowSize)
         
         let outerLefterBottom = UIButton(title: "LB", bgColor: bgColor)
         view.addSubview(outerLefterBottom)
-        outerLefterBottom.mt_OuterAlign(PinOuterPosition.LefterBottom, toView: midCenterBtn, space: 8, size: folowSize)
+        outerLefterBottom.mt_OuterAlign(pinTo: PinOuterPosition.LefterBottom, toView: midCenterBtn, space: 8, size: folowSize)
 
         let outerRighterBottom = UIButton(title: "RB", bgColor: bgColor)
         view.addSubview(outerRighterBottom)
-        outerRighterBottom.mt_OuterAlign(PinOuterPosition.RighterBottom, toView: midCenterBtn, space: 8, size: folowSize)
+        outerRighterBottom.mt_OuterAlign(pinTo: PinOuterPosition.RighterBottom, toView: midCenterBtn, space: 8, size: folowSize)
         
         let outerRightLine = UIView()
-        outerRightLine.backgroundColor = UIColor.grayColor
+        outerRightLine.backgroundColor = UIColor.gray
         view.addSubview(outerRightLine)
         outerRightLine.mt_OuterAlign(pinTo: PinOuterPosition.Right, toView: midCenterBtn, space: 8, size: CGSize(width: 1, height: 200))
         
@@ -199,7 +199,7 @@ class ViewController: UIViewController {
     
     func changeSize() {
         self.dict[kConstraintType.innerEqualHeight]?.constant += 100
-        UIView.animateWithDuration(1) { () -> Void in
+        UIView.animate(withDuration: 1) { () -> Void in
             self.view.layoutIfNeeded()
         }
         
