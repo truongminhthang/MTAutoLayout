@@ -102,13 +102,13 @@ extension UIView {
         case PinPosition.HighRight:
             return hightRight(topRight: space, size: size, offset: offset)
         case PinPosition.MidLeft:
-            return midLeft(space, size: size, offset: offset)
+            return midLeft(left: space, size: size, offset: offset)
 
         case PinPosition.Center:
             return center(size, offset: offset)
             
         case PinPosition.MidRight:
-            return midRight(space, size: size, offset: offset)
+            return midRight(right: space, size: size, offset: offset)
         case PinPosition.LowLeft:
             return lowLeft(space, size: size, offset: offset)
         case PinPosition.LowCenter:
