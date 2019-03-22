@@ -110,12 +110,12 @@ extension UIView {
         case PinPosition.MidRight:
             return midRight(right: space, size: size, offset: offset)
         case PinPosition.LowLeft:
-            return lowLeft(space, size: size, offset: offset)
+            return lowLeft(bottomLeft: space, size: size, offset: offset)
         case PinPosition.LowCenter:
-            return lowCenter(space, size: size, offset: offset)
+            return lowCenter(bottom: space, size: size, offset: offset)
             
         case PinPosition.LowRight:
-            return lowRight(space, size: size, offset: offset)
+            return lowRight(bottomRight: space, size: size, offset: offset)
             
         }
     }
@@ -133,7 +133,7 @@ extension UIView {
         dict[top.identifier!] = top
         
         if let _size = size {
-            let sizeConstraint = mt_SetSize (_size)
+            let sizeConstraint = mt_SetSize (size: _size)
             for (key, constraint) in sizeConstraint{
                 dict[key] = constraint
             }
@@ -148,7 +148,7 @@ extension UIView {
         let centerX = centerXToCenterX(space: offset.horizontal)
         
         if let _size = size {
-            let sizeConstraint = mt_SetSize (_size)
+            let sizeConstraint = mt_SetSize (size: _size)
             for (key, constraint) in sizeConstraint{
                 dict[key] = constraint
             }
@@ -169,7 +169,7 @@ extension UIView {
         dict[trail.identifier!] = trail
         
         if let _size = size {
-            let sizeConstraint = mt_SetSize (_size)
+            let sizeConstraint = mt_SetSize (size: _size)
             for (key, constraint) in sizeConstraint{
                 dict[key] = constraint
             }
@@ -189,7 +189,7 @@ extension UIView {
         dict[centerY.identifier!] = centerY
         
         if let _size = size {
-            let sizeConstraint = mt_SetSize (_size)
+            let sizeConstraint = mt_SetSize (size: _size)
             for (key, constraint) in sizeConstraint{
                 dict[key] = constraint
             }
@@ -206,7 +206,7 @@ extension UIView {
         dict[centerY.identifier!] = centerY
         
         if let _size = size {
-            let sizeConstraint = mt_SetSize (_size)
+            let sizeConstraint = mt_SetSize (size: _size)
             for (key, constraint) in sizeConstraint{
                 dict[key] = constraint
             }
@@ -224,7 +224,7 @@ extension UIView {
         dict[centerY.identifier!] = centerY
         
         if let _size = size {
-            let sizeConstraint = mt_SetSize (_size)
+            let sizeConstraint = mt_SetSize (size: _size)
             for (key, constraint) in sizeConstraint{
                 dict[key] = constraint
             }
@@ -244,7 +244,7 @@ extension UIView {
         dict[left.identifier!] = left
         
         if let _size = size {
-            let sizeConstraint = mt_SetSize (_size)
+            let sizeConstraint = mt_SetSize (size: _size)
             for (key, constraint) in sizeConstraint{
                 dict[key] = constraint
             }
@@ -261,7 +261,7 @@ extension UIView {
         dict[bottom.identifier!] = bottom
         
         if let _size = size {
-            let sizeConstraint = mt_SetSize (_size)
+            let sizeConstraint = mt_SetSize (size: _size)
             for (key, constraint) in sizeConstraint{
                 dict[key] = constraint
             }
@@ -279,7 +279,7 @@ extension UIView {
         dict[bottom.identifier!] = bottom
         
         if let _size = size {
-            let sizeConstraint = mt_SetSize (_size)
+            let sizeConstraint = mt_SetSize (size: _size)
             for (key, constraint) in sizeConstraint{
                 dict[key] = constraint
             }
@@ -291,8 +291,8 @@ extension UIView {
     
     
     func mt_SetSize (size: CGSize) -> [String: NSLayoutConstraint] {
-        let constraintHeight = equalHeight(size.height)
-        let constraintWidth = equalWidth(size.width)
+        let constraintHeight = equalHeight(height: size.height)
+        let constraintWidth = equalWidth(width: size.width)
         return [kConstraintType.innerEqualWidth: constraintWidth, kConstraintType.innerEqualHeight: constraintHeight]
 
     }
@@ -375,7 +375,7 @@ extension UIView {
         let top = topToTop(space: space)
         var heightConstraint: NSLayoutConstraint? = nil
         if let _height = height {
-            heightConstraint = equalHeight(_height)
+            heightConstraint = equalHeight(height: _height)
             dict[heightConstraint!.identifier!] = heightConstraint
         }
         
@@ -393,15 +393,15 @@ extension UIView {
             self.translatesAutoresizingMaskIntoConstraints = false
         }
         let constraint = NSLayoutConstraint(item: self,
-                attribute: NSLayoutAttribute.Width,
-                relatedBy: NSLayoutRelation.Equal,
+                                            attribute: NSLayoutConstraint.Attribute.width,
+                                            relatedBy: NSLayoutConstraint.Relation.equal,
                 toItem: nil,
-                attribute: NSLayoutAttribute.NotAnAttribute,
+                attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                 multiplier: 1,
                 constant: width)
             constraint.identifier = kConstraintType.outerEqualWidth
       
-        constraint.priority = priority
+        constraint.priority = UILayoutPriority(rawValue: priority)
         self.addConstraint(constraint)
         return constraint
     }
@@ -413,15 +413,15 @@ extension UIView {
         }
         
         let constraint = NSLayoutConstraint(item: self,
-                attribute: NSLayoutAttribute.Height,
-                relatedBy: NSLayoutRelation.Equal,
+                                            attribute: NSLayoutConstraint.Attribute.height,
+                                            relatedBy: NSLayoutConstraint.Relation.equal,
                 toItem: nil,
-                attribute: NSLayoutAttribute.NotAnAttribute,
+                attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                 multiplier: 1,
                 constant: height)
             constraint.identifier = kConstraintType.innerEqualHeight
         
-        constraint.priority = priority
+        constraint.priority = UILayoutPriority(rawValue: priority)
         self.addConstraint(constraint)
         return constraint
 
@@ -434,7 +434,7 @@ extension UIView {
         }
         
         let constraint = NSLayoutConstraint(item: self,
-            attribute: NSLayoutAttribute.Height,
+                                            attribute: NSLayoutConstraint.Attribute.Height,
             relatedBy: NSLayoutRelation.Equal,
             toItem: view,
             attribute: NSLayoutAttribute.Height,
