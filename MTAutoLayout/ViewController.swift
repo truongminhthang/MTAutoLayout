@@ -15,17 +15,17 @@ class ViewController: UIViewController {
     let folowSize = CGSize(width: 20, height: 20)
     
     var dict : [String: NSLayoutConstraint]!
-    let bgColor = UIColor.greenColor()
-    let innerColor = UIColor.cyanColor()
+    let bgColor = UIColor.green
+    let innerColor = UIColor.cyan
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        button = UIButton(type: UIButtonType.RoundedRect)
-        button.backgroundColor = UIColor.cyanColor()
-        button.setTitle("change size", forState: UIControlState.Normal)
-        button.addTarget(self, action: "changeSize", forControlEvents: UIControlEvents.TouchUpInside)
+        button = UIButton(type: UIButton.ButtonType.RoundedRect)
+        button.backgroundColor = UIColor.cyanColor
+        button.setTitle("change size", forState: UIControl.State.Normal)
+        button.addTarget(self, action: "changeSize", forControlEvents: UIControl.Event.TouchUpInside)
         
         view.addSubview(button)
         
